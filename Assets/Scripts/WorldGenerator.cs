@@ -19,7 +19,9 @@ public class WorldGenerator {
 
 				if (randomValue > 0.01 && randomValue < 0.02) {
 					WorldObject[] astroids = GetObjects(WorldObjectType.Astroid);
-					UnityEngine.Object.Instantiate(GetWorldObjectFromWeight(astroids).GetGameObject(), new Vector3(x, y, 0), Quaternion.identity);
+					GameObject astroid = (GameObject) UnityEngine.Object.Instantiate(GetWorldObjectFromWeight(astroids).GetGameObject(), new Vector3(x, y, 0), Quaternion.identity);
+					// Too laggy
+					//astroid.rigidbody2D.AddForce(new Vector2(Random.Range(0f, 30f), Random.Range(0f, 30f)));
 				} else {
 
 				}

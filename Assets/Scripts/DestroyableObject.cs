@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class DestroyableObject : ObjectProperties {
 	[SerializeField]
-	private int health;
+	protected int health;
+	[SerializeField]
+	private int pointValue;
+	[SerializeField]
+	private GameObject particleSystemOnDeath;
 	private PlayerController playerController;
 
-	public void Awake() {
+	void Awake() {
 		playerController = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerController>();
 	}
 
@@ -17,6 +21,10 @@ public class DestroyableObject : ObjectProperties {
 		return health <= 0;
 	}
 
+	public int GetHealth() {
+		return health;
+	}
+
 	void Start() {
 		if (this.IsDead()) {
 			Debug.Log("Object spawned in dead", this.gameObject);
@@ -25,8 +33,15 @@ public class DestroyableObject : ObjectProperties {
 
 	void Update() {
 		if (this.IsDead()) {
-			playerController.AddPoint(1);
+			playerController.AddPoint(pointValue);
+			TrySpawningParticleSystem();
 			Destroy(this.gameObject);
+		}
+	}
+
+	protected void TrySpawningParticleSystem() {
+		if (particleSystemOnDeath != null) {
+			Instantiate(particleSystemOnDeath, transform.position, transform.rotation);
 		}
 	}
 

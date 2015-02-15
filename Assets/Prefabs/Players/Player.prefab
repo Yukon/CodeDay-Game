@@ -132,10 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4994036fdb99c4c0d90d0235c823e42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  pointValue: 0
+  particleSystemOnDeath: {fileID: 159204, guid: 87e33bb2a9d9941bfbd84a28b6ccd157,
+    type: 2}
   power: 4
   rotationSpeed: 4
   jetSprite: {fileID: 21300000, guid: b032e3073e05c4376834c37bf78787bf, type: 3}
   laser: {fileID: 111958, guid: 0796f273c5d5b441e91573555fee2b27, type: 2}
+  gameOverUI: {fileID: 140174, guid: ef8c888270b854b8bab1b722592790fd, type: 2}
 --- !u!212 &21206414
 SpriteRenderer:
   m_ObjectHideFlags: 1

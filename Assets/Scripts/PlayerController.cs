@@ -1,22 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : DestroyableObject {
 	public float power;
 	public float rotationSpeed;
 	private Sprite orignalSprite;
 	public Sprite jetSprite;
     public GameObject laser;
     private SpriteRenderer spriteRender;
-    public int maxHealth;
-    private int health;
-    private int score;
+    protected int score;
+    public GameObject gameOverUI;
 
 	void Awake() {
         DontDestroyOnLoad(this.gameObject);
         spriteRender = GetComponent<SpriteRenderer>();
 		orignalSprite = spriteRender.sprite;
-        health = maxHealth;
 	}
 
 	void FixedUpdate() {
@@ -55,8 +53,10 @@ public class PlayerController : MonoBehaviour {
         camPos.y = Mathf.Clamp(camPos.y, 0.3f, 0.7f);
         Camera.main.transform.position = Camera.main.ViewportToWorldPoint(camPos);
 
-        if (health <= 0) {
-            // Dead
+        if (this.IsDead()) {
+            gameObject.SetActive(false);
+            Instantiate(gameOverUI, new Vector3(0, 0, 0), Quaternion.identity);
+            TrySpawningParticleSystem();
         }
     }
 
@@ -67,12 +67,8 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collider) {
         if (collider.gameObject.tag == "Astroid") {
-            health -= Mathf.Clamp((int) (rigidbody2D.velocity.sqrMagnitude * 2 - 5), 0, maxHealth);
+            Damage(Mathf.Clamp((int) (rigidbody2D.velocity.sqrMagnitude * 2 - 5), 0, int.MaxValue));
         }
-    }
-
-    public int GetHealth() {
-        return health;
     }
 
     public void AddPoint(int point) {
