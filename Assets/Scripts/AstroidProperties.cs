@@ -1,3 +1,3 @@
-public class AstroidProperties : ObjectProperties  {
+public class AstroidProperties : DestroyableObject  {
 
 }
