@@ -56,8 +56,6 @@ public class WorldGenerator {
 			totalWeight += weight;
 		}
 
-		Debug.Log(Random.Range(0, totalWeight));
-
 		return (WorldObject) weightList[Random.Range(0, totalWeight)];
 	}
 }
