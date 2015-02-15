@@ -12,7 +12,13 @@ public class DestroyableObject : ObjectProperties {
 		return heath <= 0;
 	}
 
-	public void OnCollisionEnter2D(Collision2D collision) {
+	void Update() {
+		if (this.IsDead()) {
+			Destroy(this.gameObject);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
 		Projectile projectile =  collision.gameObject.GetComponent<Projectile>();
 		if (projectile != null) {
 			this.Damage(projectile.GetDamage());
