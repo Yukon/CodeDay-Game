@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FireLaser(Transform launchPosition) {
-        Instantiate(laser, launchPosition.position, transform.rotation);
+        GameObject projectile = (GameObject) Instantiate(laser, launchPosition.position, transform.rotation);
+        projectile.rigidbody2D.velocity += rigidbody2D.velocity;
     }
 }
