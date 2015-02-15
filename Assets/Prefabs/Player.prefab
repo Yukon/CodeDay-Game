@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 4
-  rotationSpeed: 5
+  rotationSpeed: 4
   jetSprite: {fileID: 21300000, guid: b032e3073e05c4376834c37bf78787bf, type: 3}
   laser: {fileID: 111958, guid: 0796f273c5d5b441e91573555fee2b27, type: 2}
 --- !u!212 &21206414
