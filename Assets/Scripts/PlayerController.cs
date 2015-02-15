@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private int score;
 
 	void Awake() {
+        DontDestroyOnLoad(this.gameObject);
         spriteRender = GetComponent<SpriteRenderer>();
 		orignalSprite = spriteRender.sprite;
         health = maxHealth;
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        // Just spawned in HACKY!
+        if (transform.position.z == -100 && Application.loadedLevelName == "GameView") {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             foreach (Transform child in transform) {
                 if (child.name == "FirePosition") {
