@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class DestroyableObject : ObjectProperties {
 	[SerializeField]
-	private int heath;
+	private int health;
 
 	public void Damage(int amount) {
-		this.heath -= amount;
+		this.health -= amount;
 	}
 
 	public bool IsDead() {
-		return heath <= 0;
+		return health <= 0;
 	}
 
 	void Update() {
