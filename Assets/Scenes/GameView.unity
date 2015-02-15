@@ -85,9 +85,10 @@ GameObject:
   - 212: {fileID: 43869854}
   - 50: {fileID: 43869853}
   - 114: {fileID: 43869852}
+  - 60: {fileID: 43869855}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +161,27 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9f556283526ec431993012d3ac6d6efc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!60 &43869855
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6043578, guid: 09eecf029bf804594ac650b76c7d8ddd,
+    type: 2}
+  m_PrefabInternal: {fileID: 891274510}
+  m_GameObject: {fileID: 43869850}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: -.0500000007, y: .319999993}
+      - {x: -.200000003, y: .0399999991}
+      - {x: -.200000003, y: -.140000001}
+      - {x: -.170000002, y: -.200000003}
+      - {x: -.0700000003, y: -.230000004}
+      - {x: .129999995, y: -.230000004}
+      - {x: .200000003, y: -.109999999}
+      - {x: .200000003, y: .0299999993}
+      - {x: .0500000007, y: .319999993}
 --- !u!1 &263264819
 GameObject:
   m_ObjectHideFlags: 0
