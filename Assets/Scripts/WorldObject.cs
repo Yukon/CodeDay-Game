@@ -7,7 +7,7 @@ public class WorldObject {
 	[SerializeField]
 	private WorldObjectType type;
 	[SerializeField]
-	private float weight;
+	private int weight;
 
 	public GameObject GetGameObject() {
 		return this.gameObject;
@@ -15,5 +15,9 @@ public class WorldObject {
 
 	public WorldObjectType GetObjectType() {
 		return this.type;
+	}
+
+	public int GetWeight() {
+		return this.weight;
 	}
 }
