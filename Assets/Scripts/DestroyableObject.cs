@@ -12,6 +12,12 @@ public class DestroyableObject : ObjectProperties {
 		return health <= 0;
 	}
 
+	void Start() {
+		if (this.IsDead()) {
+			Debug.Log("Object spawned in dead", this.gameObject);
+		}
+	}
+
 	void Update() {
 		if (this.IsDead()) {
 			Destroy(this.gameObject);
