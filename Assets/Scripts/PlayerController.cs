@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -11,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     private SpriteRenderer spriteRender;
     public int maxHealth;
     private int health;
+    private int score;
 
 	void Awake() {
         spriteRender = GetComponent<SpriteRenderer>();
@@ -67,5 +67,13 @@ public class PlayerController : MonoBehaviour {
 
     public int GetHealth() {
         return health;
+    }
+
+    public void AddPoint(int point) {
+        score += point;
+    }
+
+    public int GetScore() {
+        return score;
     }
 }

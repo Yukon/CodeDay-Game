@@ -3,6 +3,11 @@ using UnityEngine;
 public class DestroyableObject : ObjectProperties {
 	[SerializeField]
 	private int health;
+	private PlayerController playerController;
+
+	public void Awake() {
+		playerController = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerController>();
+	}
 
 	public void Damage(int amount) {
 		this.health -= amount;
@@ -20,6 +25,7 @@ public class DestroyableObject : ObjectProperties {
 
 	void Update() {
 		if (this.IsDead()) {
+			playerController.AddPoint(1);
 			Destroy(this.gameObject);
 		}
 	}
