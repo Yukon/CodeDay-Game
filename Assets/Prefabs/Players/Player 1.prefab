@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21227482}
   - 50: {fileID: 5027482}
   - 114: {fileID: 11427482}
+  - 60: {fileID: 6043578}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -73,6 +74,26 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!60 &6043578
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127482}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: -.0500000007, y: .319999993}
+      - {x: -.200000003, y: .0399999991}
+      - {x: -.200000003, y: -.140000001}
+      - {x: -.170000002, y: -.200000003}
+      - {x: -.0700000003, y: -.230000004}
+      - {x: .129999995, y: -.230000004}
+      - {x: .200000003, y: -.109999999}
+      - {x: .200000003, y: .0299999993}
+      - {x: .0500000007, y: .319999993}
 --- !u!114 &11427482
 MonoBehaviour:
   m_ObjectHideFlags: 1
