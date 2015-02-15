@@ -109,6 +109,7 @@ MonoBehaviour:
   rotationSpeed: 7
   jetSprite: {fileID: 21300000, guid: b89b51ad5cd0541d29ea0a13bf74cdfd, type: 3}
   laser: {fileID: 111958, guid: 0796f273c5d5b441e91573555fee2b27, type: 2}
+  maxHealth: 100
 --- !u!212 &21227482
 SpriteRenderer:
   m_ObjectHideFlags: 1

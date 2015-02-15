@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Astroid
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

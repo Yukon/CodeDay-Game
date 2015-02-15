@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -8,10 +9,13 @@ public class PlayerController : MonoBehaviour {
 	public Sprite jetSprite;
     public GameObject laser;
     private SpriteRenderer spriteRender;
+    public int maxHealth;
+    private int health;
 
 	void Awake() {
         spriteRender = GetComponent<SpriteRenderer>();
 		orignalSprite = spriteRender.sprite;
+        health = maxHealth;
 	}
 
 	void FixedUpdate() {
@@ -44,10 +48,24 @@ public class PlayerController : MonoBehaviour {
         camPos.x = Mathf.Clamp(camPos.x, 0.3f, 0.7f);
         camPos.y = Mathf.Clamp(camPos.y, 0.3f, 0.7f);
         Camera.main.transform.position = Camera.main.ViewportToWorldPoint(camPos);
+
+        if (health <= 0) {
+            // Dead
+        }
     }
 
     private void FireLaser(Transform launchPosition) {
         GameObject projectile = (GameObject) Instantiate(laser, launchPosition.position, transform.rotation);
         projectile.rigidbody2D.velocity += rigidbody2D.velocity;
+    }
+
+    void OnCollisionEnter2D(Collision2D collider) {
+        if (collider.gameObject.tag == "Astroid") {
+            health -= Mathf.Clamp((int) (rigidbody2D.velocity.sqrMagnitude * 2 - 5), 0, maxHealth);
+        }
+    }
+
+    public int GetHealth() {
+        return health;
     }
 }
