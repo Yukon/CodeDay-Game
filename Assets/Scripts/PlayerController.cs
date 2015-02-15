@@ -10,21 +10,20 @@ public class PlayerController : MonoBehaviour {
     private SpriteRenderer spriteRender;
 
 	void Awake() {
-        spriteRender =
-		orignalSprite = spriteRender;
+        spriteRender = GetComponent<SpriteRenderer>();
+		orignalSprite = spriteRender.sprite;
 	}
 
 	void FixedUpdate() {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        SpriteRenderer spriteRender = GetComponent<SpriteRenderer>().sprite;
 
         if (moveVertical == 1) {
-        	spriteRender = jetSprite;
+        	spriteRender.sprite = jetSprite;
         	rigidbody2D.AddForce(transform.up * power);
         } else if (moveVertical == 0) {
-            if (spriteRender == jetSprite) {
-                spriteRander = orignalSprite;
+            if (spriteRender.sprite == jetSprite) {
+                spriteRender.sprite = orignalSprite;
             }
         }
         rigidbody2D.MoveRotation(rigidbody2D.rotation + (moveHorizontal * -rotationSpeed));
